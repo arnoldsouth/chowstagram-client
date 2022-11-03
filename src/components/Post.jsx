@@ -113,7 +113,7 @@ const Post = ({ post }) => {
               )}
             </div>
             <div className=" flex justify-between items-center gap-2 w-full">
-              {destination?.slice(8).length > 0 ? (
+              {/* {destination?.slice(8).length > 0 ? (
                 <a
                   href={destination}
                   target="_blank"
@@ -124,7 +124,7 @@ const Post = ({ post }) => {
                   <IoArrowForwardCircleOutline />
                   {destination?.slice(8, 17)}...
                 </a>
-              ) : undefined}
+              ) : undefined} */}
               {postedBy?._id === user && (
                 <button
                   type="button"
