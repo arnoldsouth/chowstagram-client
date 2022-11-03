@@ -23,5 +23,5 @@ yarn-debug.log*
 yarn-error.log*
 
 # original public and src folder
-/.public_original
-/.src_original
+/_public_original
+/_src_original
