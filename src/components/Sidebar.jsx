@@ -8,9 +8,9 @@ import { categories } from "../utils/data";
 import chowstagramStanding from "../assets/chowstagram-standing.png";
 
 const isNotActiveStyle =
-  "flex items-center px-5 gap-3 text-gray-500 hover:text-gray-600 transition-all duration-200 ease-in-out capitalize";
+  "flex items-center px-5 gap-3 text-gray-500 hover:text-gray-800 transition-all duration-200 ease-in-out capitalize";
 const isActiveStyle =
-  "flex items-center px-5 gap-3 font-extrabold border-r-2 text-gray-600 border-gray-600 transition-all duration-200 ease-in-out capitalize";
+  "flex items-center px-5 gap-3 font-extrabold border-r-2 text-gray-800 border-gray-800 transition-all duration-200 ease-in-out capitalize";
 
 // const isNotActiveStyle =
 // 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';

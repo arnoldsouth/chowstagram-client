@@ -86,7 +86,7 @@ const CreatePost = ({ user }) => {
   return (
     <div className="flex flex-col justify-center items-center mt-5 lg:h-4/5">
       {fields && (
-        <p className="text-red-500 mb-5 text-xl transition-all duration-150 ease-in ">
+        <p className="text-red-600 mb-5 text-xl transition-all duration-150 ease-in ">
           Please add all fields.
         </p>
       )}
@@ -198,7 +198,7 @@ const CreatePost = ({ user }) => {
               <button
                 type="button"
                 onClick={savePost}
-                className="bg-gray-600 text-white font-bold p-2 rounded-lg w-28 outline-none"
+                className="bg-gray-800 text-white font-bold p-2 rounded-lg w-28 outline-none"
               >
                 Post
               </button>

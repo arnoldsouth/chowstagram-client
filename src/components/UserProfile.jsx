@@ -15,7 +15,7 @@ import MasonryLayout from "./MasonryLayout";
 import LoadingSpinner from "./LoadingSpinner";
 
 const activeBtnStyles =
-  "bg-gray-600 text-white font-bold p-2 rounded-lg w-20 outline-none";
+  "bg-gray-800 text-white font-bold p-2 rounded-lg w-20 outline-none";
 const notActiveBtnStyles =
   "bg-primary mr-4 text-black font-bold p-2 rounded-lg w-20 outline-none";
 
@@ -87,7 +87,7 @@ const UserProfile = () => {
             {userId === User && (
               <button
                 type="button"
-                className=" bg-gray-600 p-2 rounded-lg cursor-pointer outline-none shadow-sm"
+                className=" bg-gray-800 p-2 rounded-lg cursor-pointer outline-none shadow-sm"
                 onClick={() => {
                   logout();
                   googleLogout();

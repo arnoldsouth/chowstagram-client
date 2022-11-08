@@ -35,7 +35,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
           </Link>
           <Link
             to="/create-post"
-            className="bg-gray-600 text-white rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center"
+            className="bg-gray-800 text-white rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center"
           >
             <IoMdAdd />
           </Link>

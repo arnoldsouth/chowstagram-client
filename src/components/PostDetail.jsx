@@ -60,7 +60,7 @@ const PostDetail = ({ user }) => {
   };
 
   if (!PostDetail) {
-    return <LoadingSpinner message="Fetching good boi/gorl..." />;
+    return <LoadingSpinner message="Grabbing what you want..." />;
   }
 
   return (
@@ -150,7 +150,7 @@ const PostDetail = ({ user }) => {
               />
               <button
                 type="button"
-                className="bg-gray-600 text-white rounded-lg px-6 py-2 font-semibold text-base outline-none"
+                className="bg-gray-800 text-white rounded-lg px-6 py-2 font-semibold text-base outline-none"
                 onClick={addComment}
               >
                 {addingComment ? "Doing..." : "Done"}
