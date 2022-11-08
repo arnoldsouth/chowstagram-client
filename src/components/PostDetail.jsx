@@ -150,7 +150,7 @@ const PostDetail = ({ user }) => {
               />
               <button
                 type="button"
-                className="bg-gray-800 text-white rounded-lg px-6 py-2 font-semibold text-base outline-none"
+                className="bg-gray-900 text-white rounded-lg px-6 py-2 font-semibold text-base outline-none"
                 onClick={addComment}
               >
                 {addingComment ? "Doing..." : "Done"}

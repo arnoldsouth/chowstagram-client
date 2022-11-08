@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { HiMenu } from "react-icons/hi";
-import { AiFillCloseCircle } from "react-icons/ai";
+
+import { IoMenuOutline, IoCloseOutline } from "react-icons/io5";
 import { Link, Route, Routes } from "react-router-dom";
 
 import { Sidebar, UserProfile } from "../components";
@@ -8,7 +8,7 @@ import { userQuery } from "../utils/data";
 import { client } from "../client";
 import Posts from "./Posts";
 
-import chowstagramStanding from "../assets/chowstagram-standing.png";
+import chowstagramLogoBlack from "../assets/chowstagram-logo-black.png";
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
@@ -39,16 +39,16 @@ const Home = () => {
       </div>
       <div className="flex md:hidden flex-row">
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
-          <HiMenu
+          <IoMenuOutline
             fontSize={40}
             className="cursor-pointer"
             onClick={() => setToggleSidebar(true)}
           />
           <Link to="/">
             <img
-              src={chowstagramStanding}
-              alt="chowstagramStanding"
-              className="w-28"
+              src={chowstagramLogoBlack}
+              alt="chowstagramLogoBlack"
+              className="w-56 rounded-lg shadow-sm"
             />
           </Link>
           <Link to={`user-profile/${user?._id}`}>
@@ -62,7 +62,7 @@ const Home = () => {
         {toggleSidebar && (
           <div className="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
             <div className="absolute w-full flex justify-end items-center p-2">
-              <AiFillCloseCircle
+              <IoCloseOutline
                 fontSize={30}
                 className="cursor-pointer"
                 onClick={() => setToggleSidebar(false)}

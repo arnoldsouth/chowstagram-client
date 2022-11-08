@@ -15,14 +15,14 @@ import MasonryLayout from "./MasonryLayout";
 import LoadingSpinner from "./LoadingSpinner";
 
 const activeBtnStyles =
-  "bg-gray-800 text-white font-bold p-2 rounded-lg w-20 outline-none";
+  "bg-gray-900 text-white font-bold p-2 rounded-lg w-25 outline-none";
 const notActiveBtnStyles =
-  "bg-primary mr-4 text-black font-bold p-2 rounded-lg w-20 outline-none";
+  "bg-primary text-black font-bold p-2 rounded-lg w-25 outline-none";
 
 const UserProfile = () => {
   const [user, setUser] = useState();
   const [posts, setPosts] = useState();
-  const [text, setText] = useState("Posted");
+  const [text, setText] = useState("Published");
   const [activeBtn, setActiveBtn] = useState("created");
   const navigate = useNavigate();
   const { userId } = useParams();
@@ -40,7 +40,7 @@ const UserProfile = () => {
   }, [userId]);
 
   useEffect(() => {
-    if (text === "Posted") {
+    if (text === "Published") {
       const createdPostsQuery = userCreatedPostsQuery(userId);
 
       client.fetch(createdPostsQuery).then((data) => {
@@ -87,7 +87,7 @@ const UserProfile = () => {
             {userId === User && (
               <button
                 type="button"
-                className=" bg-gray-800 p-2 rounded-lg cursor-pointer outline-none shadow-sm"
+                className=" bg-gray-900 p-2 rounded-lg cursor-pointer outline-none shadow-sm"
                 onClick={() => {
                   logout();
                   googleLogout();
@@ -112,7 +112,7 @@ const UserProfile = () => {
               activeBtn === "created" ? activeBtnStyles : notActiveBtnStyles
             }`}
           >
-            Posted
+            Published
           </button>
           <button
             type="button"
@@ -124,7 +124,7 @@ const UserProfile = () => {
               activeBtn === "saved" ? activeBtnStyles : notActiveBtnStyles
             }`}
           >
-            Saved
+            Liked
           </button>
         </div>
 
@@ -134,7 +134,7 @@ const UserProfile = () => {
 
         {posts?.length === 0 && (
           <div className="flex justify-center font-bold items-center w-full text-1xl mt-2">
-            No posts saved ~
+            No posts found!
           </div>
         )}
       </div>

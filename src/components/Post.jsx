@@ -92,7 +92,7 @@ const Post = ({ post }) => {
               {alreadySaved?.length !== 0 ? (
                 <button
                   type="button"
-                  // className="bg-gray-800 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-lg hover:shadow-md outline-none"
+                  // className="bg-gray-900 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-lg hover:shadow-md outline-none"
                   className="bg-white p-2 rounded-lg w-8 h-8 flex items-center justify-center text-red-500 opacity-75 hover:opacity-100 outline-none"
                 >
                   {/* {post?.save?.length} Saved */}
@@ -105,7 +105,7 @@ const Post = ({ post }) => {
                     savePost(_id);
                   }}
                   type="button"
-                  // className="bg-gray-800 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-lg hover:shadow-md outline-none"
+                  // className="bg-gray-900 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-lg hover:shadow-md outline-none"
                   // className="bg-white w-9 h-9 p-2 rounded-lg flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-md outline-none"
                   className="bg-white p-2 rounded-lg w-8 h-8 flex items-center justify-center text-red-500 opacity-75 hover:opacity-100 outline-none"
                 >

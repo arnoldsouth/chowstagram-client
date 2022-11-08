@@ -5,7 +5,7 @@ import { GoogleLogin } from "@react-oauth/google";
 import { client } from "../client";
 
 // import touka from '../assets/touka.png';
-import chowstagramStanding from "../assets/chowstagram-standing.png";
+import chowstagramLogoBlack from "../assets/chowstagram-logo-black.png";
 // import shareVideo from '../assets/share.mp4';
 
 const Login = () => {
@@ -51,10 +51,10 @@ const Login = () => {
         <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-blackOverlay">
           <div className="p-5">
             <img
-              src={chowstagramStanding}
-              alt="chowstagramStanding"
+              src={chowstagramLogoBlack}
+              alt="chowstagramLogoBlack"
               className="rounded-lg shadow-sm"
-              width="270px"
+              width="540px"
             />
           </div>
 

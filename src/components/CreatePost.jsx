@@ -198,7 +198,7 @@ const CreatePost = ({ user }) => {
               <button
                 type="button"
                 onClick={savePost}
-                className="bg-gray-800 text-white font-bold p-2 rounded-lg w-28 outline-none"
+                className="bg-gray-900 text-white font-bold p-2 rounded-lg w-28 outline-none"
               >
                 Post
               </button>
