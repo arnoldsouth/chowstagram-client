@@ -1,14 +1,14 @@
 export const categories = [
   {
-    name: 'dogs',
+    name: "dogs",
     image:
-      'https://as2.ftcdn.net/v2/jpg/02/96/92/85/1000_F_296928535_39DVNoqSdEqknJyQp5yeWpf064JgHPNB.jpg',
+      "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/afecf2af5d897b763e5e8e28d46aad2f710ccad6/js-packages/%40fortawesome/fontawesome-free/svgs/solid/dog.svg",
   },
 
   {
-    name: 'food',
+    name: "food",
     image:
-      'https://img.freepik.com/free-vector/ramen-noodle-egg-meat-with-chopstick-cartoon_138676-2543.jpg?w=1480&t=st=1667014567~exp=1667015167~hmac=850f01fe7be8d0941cef770517f2d245bb75f5ec3b860f075797f70ca446ad77',
+      "https://raw.githubusercontent.com/FortAwesome/Font-Awesome/afecf2af5d897b763e5e8e28d46aad2f710ccad6/js-packages/%40fortawesome/fontawesome-free/svgs/solid/hamburger.svg",
   },
 
   // {

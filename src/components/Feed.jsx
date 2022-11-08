@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-import { client } from '../client';
-import { feedQuery, searchQuery } from '../utils/data';
-import MasonryLayout from './MasonryLayout';
-import LoadingSpinner from './LoadingSpinner';
+import { client } from "../client";
+import { feedQuery, searchQuery } from "../utils/data";
+import MasonryLayout from "./MasonryLayout";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Feed = () => {
   const [posts, setPosts] = useState();
@@ -28,7 +28,7 @@ const Feed = () => {
       });
     }
   }, [categoryId]);
-  const ideaName = categoryId || 'new';
+  const ideaName = categoryId || "new";
   if (loading) {
     <LoadingSpinner
       message={`We are adding ${ideaName} ideas to your feed!`}

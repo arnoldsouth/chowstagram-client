@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import { IoDownloadOutline } from 'react-icons/io5';
-import { Link, useParams } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
+import React, { useEffect, useState } from "react";
+import { IoDownloadOutline } from "react-icons/io5";
+import { Link, useParams } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
-import { client, urlFor } from '../client';
-import MasonryLayout from './MasonryLayout';
-import { PostDetailMorePostQuery, PostDetailQuery } from '../utils/data';
-import LoadingSpinner from './LoadingSpinner';
+import { client, urlFor } from "../client";
+import MasonryLayout from "./MasonryLayout";
+import { PostDetailMorePostQuery, PostDetailQuery } from "../utils/data";
+import LoadingSpinner from "./LoadingSpinner";
 
 const PostDetail = ({ user }) => {
   const { postId } = useParams();
   const [posts, setPosts] = useState();
   const [PostDetail, setPostDetail] = useState();
-  const [comment, setComment] = useState('');
+  const [comment, setComment] = useState("");
   const [addingComment, setAddingComment] = useState(false);
 
   const fetchPostDetails = () => {
@@ -43,17 +43,17 @@ const PostDetail = ({ user }) => {
       client
         .patch(postId)
         .setIfMissing({ comments: [] })
-        .insert('after', 'comments[-1]', [
+        .insert("after", "comments[-1]", [
           {
             comment,
             _key: uuidv4(),
-            postedBy: { _type: 'postedBy', _ref: user._id },
+            postedBy: { _type: "postedBy", _ref: user._id },
           },
         ])
         .commit()
         .then(() => {
           fetchPostDetails();
-          setComment('');
+          setComment("");
           setAddingComment(false);
         });
     }
@@ -68,7 +68,7 @@ const PostDetail = ({ user }) => {
       {PostDetail && (
         <div
           className="flex xl:flex-row flex-col m-auto bg-white"
-          style={{ maxWidth: '1500px', borderRadius: '32px' }}
+          style={{ maxWidth: "1500px", borderRadius: "32px" }}
         >
           <div className="flex justify-center items-center md:items-start flex-initial">
             <img
@@ -88,6 +88,7 @@ const PostDetail = ({ user }) => {
                   <IoDownloadOutline />
                 </a>
               </div>
+
               <a
                 href={PostDetail.destination}
                 target="_blank"
@@ -149,10 +150,10 @@ const PostDetail = ({ user }) => {
               />
               <button
                 type="button"
-                className="bg-yellow-400 text-white rounded-lg px-6 py-2 font-semibold text-base outline-none"
+                className="bg-gray-600 text-white rounded-lg px-6 py-2 font-semibold text-base outline-none"
                 onClick={addComment}
               >
-                {addingComment ? 'Doing...' : 'Done'}
+                {addingComment ? "Doing..." : "Done"}
               </button>
             </div>
           </div>

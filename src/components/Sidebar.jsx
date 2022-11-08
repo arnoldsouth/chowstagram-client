@@ -1,15 +1,16 @@
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { RiHomeFill } from 'react-icons/ri';
-import { IoIosArrowForward } from 'react-icons/io';
-import { categories } from '../utils/data';
+import React from "react";
+import { NavLink, Link } from "react-router-dom";
+import { HiHome } from "react-icons/hi";
+import { IoIosArrowForward } from "react-icons/io";
 
-import chowstagramHead from '../assets/chowstagram-head.png';
+import { categories } from "../utils/data";
+
+import chowstagramStanding from "../assets/chowstagram-standing.png";
 
 const isNotActiveStyle =
-  'flex items-center px-5 gap-3 text-gray-500 hover:text-yellow-300 transition-all duration-200 ease-in-out capitalize';
+  "flex items-center px-5 gap-3 text-gray-500 hover:text-gray-600 transition-all duration-200 ease-in-out capitalize";
 const isActiveStyle =
-  'flex items-center px-5 gap-3 font-extrabold border-r-2 text-yellow-400 border-yellow-400 transition-all duration-200 ease-in-out capitalize';
+  "flex items-center px-5 gap-3 font-extrabold border-r-2 text-gray-600 border-gray-600 transition-all duration-200 ease-in-out capitalize";
 
 // const isNotActiveStyle =
 // 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
@@ -30,8 +31,8 @@ const Sidebar = ({ closeToggle, user }) => {
           onClick={handleCloseSidebar}
         >
           <img
-            src={chowstagramHead}
-            alt="chowstagramHead"
+            src={chowstagramStanding}
+            alt="chowstagramStanding"
             className="w-full rounded-lg shadow-sm"
           />
         </Link>
@@ -47,8 +48,8 @@ const Sidebar = ({ closeToggle, user }) => {
               isActive ? isActiveStyle : isNotActiveStyle
               flex items-center px-5 gap-3 font-extrabold text-black transition-all duration-200 ease-in-out capitalize"
           >
-            <RiHomeFill />
-            Home
+            <HiHome />
+            Live Feed
           </NavLink>
 
           <h3 className="mt-2 px-5 text-base 2xl:text-xl">Discover</h3>

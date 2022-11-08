@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { IoCloudUploadOutline } from 'react-icons/io5';
-import { useNavigate } from 'react-router-dom';
-import { MdDelete } from 'react-icons/md';
+import React, { useState } from "react";
+import { IoCloudUploadOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
+import { MdDelete } from "react-icons/md";
 
-import { categories } from '../utils/data';
-import { client } from '../client';
+import { categories } from "../utils/data";
+import { client } from "../client";
 
-import LoadingSpinner from './LoadingSpinner';
+import LoadingSpinner from "./LoadingSpinner";
 
 const CreatePost = ({ user }) => {
-  const [title, setTitle] = useState('');
-  const [about, setAbout] = useState('');
+  const [title, setTitle] = useState("");
+  const [about, setAbout] = useState("");
   const [loading, setLoading] = useState(false);
   const [destination, setDestination] = useState();
   const [fields, setFields] = useState();
@@ -24,16 +24,16 @@ const CreatePost = ({ user }) => {
     const selectedFile = e.target.files[0];
     // uploading asset to sanity
     if (
-      selectedFile.type === 'image/png' ||
-      selectedFile.type === 'image/svg' ||
-      selectedFile.type === 'image/jpeg' ||
-      selectedFile.type === 'image/gif' ||
-      selectedFile.type === 'image/tiff'
+      selectedFile.type === "image/png" ||
+      selectedFile.type === "image/svg" ||
+      selectedFile.type === "image/jpeg" ||
+      selectedFile.type === "image/gif" ||
+      selectedFile.type === "image/tiff"
     ) {
       setWrongImageType(false);
       setLoading(true);
       client.assets
-        .upload('image', selectedFile, {
+        .upload("image", selectedFile, {
           contentType: selectedFile.type,
           filename: selectedFile.name,
         })
@@ -42,7 +42,7 @@ const CreatePost = ({ user }) => {
           setLoading(false);
         })
         .catch((error) => {
-          console.log('Upload failed:', error.message);
+          console.log("Upload failed:", error.message);
         });
     } else {
       setLoading(false);
@@ -51,28 +51,29 @@ const CreatePost = ({ user }) => {
   };
 
   const savePost = () => {
-    if (title && about && destination && imageAsset?._id && category) {
+    if (title && about && imageAsset?._id && category) {
+      // if (title && about && destination && imageAsset?._id && category) {
       const doc = {
-        _type: 'post',
+        _type: "post",
         title,
         about,
-        destination,
+        // destination,
         image: {
-          _type: 'image',
+          _type: "image",
           asset: {
-            _type: 'reference',
+            _type: "reference",
             _ref: imageAsset?._id,
           },
         },
         userId: user._id,
         postedBy: {
-          _type: 'postedBy',
+          _type: "postedBy",
           _ref: user._id,
         },
         category,
       };
       client.create(doc).then(() => {
-        navigate('/');
+        navigate("/");
       });
     } else {
       setFields(true);
@@ -160,13 +161,13 @@ const CreatePost = ({ user }) => {
             placeholder="Post Description"
             className="outline-none text-base sm:text-md border-b-2 border-gray-200 p-2"
           />
-          <input
+          {/* <input
             type="url"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
             placeholder="Link to image"
             className="outline-none text-base sm:text-md border-b-2 border-gray-200 p-2"
-          />
+          /> */}
 
           <div className="flex flex-col mt-5">
             <div>
@@ -197,7 +198,7 @@ const CreatePost = ({ user }) => {
               <button
                 type="button"
                 onClick={savePost}
-                className="bg-yellow-400 text-white font-bold p-2 rounded-lg w-28 outline-none"
+                className="bg-gray-600 text-white font-bold p-2 rounded-lg w-28 outline-none"
               >
                 Post
               </button>

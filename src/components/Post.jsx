@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
-import { IoDownloadOutline } from 'react-icons/io5';
-import { IoTrashOutline, IoSaveOutline } from 'react-icons/io5';
-import { IoArrowForwardCircleOutline } from 'react-icons/io5';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
+import { IoDownloadOutline } from "react-icons/io5";
+import { IoTrashOutline, IoHeartOutline, IoHeart } from "react-icons/io5";
+// import { IoArrowForwardCircleOutline } from "react-icons/io5";
 
-import { client, urlFor } from '../client';
+import { client, urlFor } from "../client";
 
 const Post = ({ post }) => {
   const [postHovered, setPostHovered] = useState(false);
@@ -16,8 +16,8 @@ const Post = ({ post }) => {
   const { postedBy, image, _id, destination } = post;
 
   const user =
-    localStorage.getItem('user') !== 'undefined'
-      ? localStorage.getItem('user')
+    localStorage.getItem("user") !== "undefined"
+      ? localStorage.getItem("user")
       : localStorage.clear();
 
   const deletePost = (id) => {
@@ -37,12 +37,12 @@ const Post = ({ post }) => {
       client
         .patch(id)
         .setIfMissing({ save: [] })
-        .insert('after', 'save[-1]', [
+        .insert("after", "save[-1]", [
           {
             _key: uuidv4(),
             userId: user,
             postedBy: {
-              _type: 'postedBy',
+              _type: "postedBy",
               _ref: user,
             },
           },
@@ -73,7 +73,7 @@ const Post = ({ post }) => {
         {postHovered && (
           <div
             className="absolute top-0 w-full h-full flex flex-col justify-between p-1 pr-2 pt-2 pb-2 z-50"
-            style={{ height: '100%' }}
+            style={{ height: "100%" }}
           >
             <div className="flex items-center justify-between">
               <div className="flex gap-2">
@@ -92,9 +92,11 @@ const Post = ({ post }) => {
               {alreadySaved?.length !== 0 ? (
                 <button
                   type="button"
-                  className="bg-yellow-400 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-lg hover:shadow-md outline-none"
+                  // className="bg-gray-600 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-lg hover:shadow-md outline-none"
+                  className="bg-white p-2 rounded-lg w-8 h-8 flex items-center justify-center text-red-500 opacity-75 hover:opacity-100 outline-none"
                 >
-                  {post?.save?.length} Saved
+                  {/* {post?.save?.length} Saved */}
+                  <IoHeart />
                 </button>
               ) : (
                 <button
@@ -103,12 +105,12 @@ const Post = ({ post }) => {
                     savePost(_id);
                   }}
                   type="button"
-                  // className="bg-yellow-400 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-lg hover:shadow-md outline-none"
+                  // className="bg-gray-600 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-lg hover:shadow-md outline-none"
                   // className="bg-white w-9 h-9 p-2 rounded-lg flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-md outline-none"
                   className="bg-white p-2 rounded-lg w-8 h-8 flex items-center justify-center text-dark opacity-75 hover:opacity-100 outline-none"
                 >
-                  {post?.save?.length}{' '}
-                  {savingPost ? 'Saving' : <IoSaveOutline />}
+                  {post?.save?.length}{" "}
+                  {savingPost ? "Saving" : <IoHeartOutline />}
                 </button>
               )}
             </div>

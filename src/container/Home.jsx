@@ -1,14 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { HiMenu } from 'react-icons/hi';
-import { AiFillCloseCircle } from 'react-icons/ai';
-import { Link, Route, Routes } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from "react";
+import { HiMenu } from "react-icons/hi";
+import { AiFillCloseCircle } from "react-icons/ai";
+import { Link, Route, Routes } from "react-router-dom";
 
-import { Sidebar, UserProfile } from '../components';
-import { userQuery } from '../utils/data';
-import { client } from '../client';
-import Posts from './Posts';
+import { Sidebar, UserProfile } from "../components";
+import { userQuery } from "../utils/data";
+import { client } from "../client";
+import Posts from "./Posts";
 
-import chowstagramHead from '../assets/chowstagram-head.png';
+import chowstagramStanding from "../assets/chowstagram-standing.png";
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
@@ -16,8 +16,8 @@ const Home = () => {
   const scrollRef = useRef(null);
 
   const userInfo =
-    localStorage.getItem('user') !== 'undefined'
-      ? localStorage.getItem('user')
+    localStorage.getItem("user") !== "undefined"
+      ? localStorage.getItem("user")
       : localStorage.clear();
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    scrollRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollRef.current.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   return (
@@ -46,8 +46,8 @@ const Home = () => {
           />
           <Link to="/">
             <img
-              src={chowstagramHead}
-              alt="chowstagramHead"
+              src={chowstagramStanding}
+              alt="chowstagramStanding"
               className="w-28"
             />
           </Link>

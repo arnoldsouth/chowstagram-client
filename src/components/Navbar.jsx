@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { IoMdAdd, IoMdSearch } from 'react-icons/io';
+import React from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { IoMdAdd, IoMdSearch } from "react-icons/io";
 
 const Navbar = ({ searchTerm, setSearchTerm, user }) => {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search"
             value={searchTerm}
-            onFocus={() => navigate('/search')}
+            onFocus={() => navigate("/search")}
             className="p-2 w-full bg-white outline-none"
           />
         </div>
@@ -35,7 +35,7 @@ const Navbar = ({ searchTerm, setSearchTerm, user }) => {
           </Link>
           <Link
             to="/create-post"
-            className="bg-yellow-400 text-white rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center"
+            className="bg-gray-600 text-white rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center"
           >
             <IoMdAdd />
           </Link>

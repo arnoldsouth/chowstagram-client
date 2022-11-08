@@ -1,35 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 // https://react-icons.github.io/react-icons/icons?name=io5
-import { IoLogOutOutline } from 'react-icons/io5';
-import { useParams, useNavigate } from 'react-router-dom';
-import { googleLogout } from '@react-oauth/google';
+import { IoLogOutOutline } from "react-icons/io5";
+import { useParams, useNavigate } from "react-router-dom";
+import { googleLogout } from "@react-oauth/google";
 
 import {
   userCreatedPostsQuery,
   userQuery,
   userSavedPostsQuery,
-} from '../utils/data';
-import { client } from '../client';
+} from "../utils/data";
+import { client } from "../client";
 
-import MasonryLayout from './MasonryLayout';
-import LoadingSpinner from './LoadingSpinner';
+import MasonryLayout from "./MasonryLayout";
+import LoadingSpinner from "./LoadingSpinner";
 
 const activeBtnStyles =
-  'bg-yellow-400 text-white font-bold p-2 rounded-lg w-20 outline-none';
+  "bg-gray-600 text-white font-bold p-2 rounded-lg w-20 outline-none";
 const notActiveBtnStyles =
-  'bg-primary mr-4 text-black font-bold p-2 rounded-lg w-20 outline-none';
+  "bg-primary mr-4 text-black font-bold p-2 rounded-lg w-20 outline-none";
 
 const UserProfile = () => {
   const [user, setUser] = useState();
   const [posts, setPosts] = useState();
-  const [text, setText] = useState('Posted');
-  const [activeBtn, setActiveBtn] = useState('created');
+  const [text, setText] = useState("Posted");
+  const [activeBtn, setActiveBtn] = useState("created");
   const navigate = useNavigate();
   const { userId } = useParams();
 
   const User =
-    localStorage.getItem('user') !== 'undefined'
-      ? localStorage.getItem('user')
+    localStorage.getItem("user") !== "undefined"
+      ? localStorage.getItem("user")
       : localStorage.clear();
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const UserProfile = () => {
   }, [userId]);
 
   useEffect(() => {
-    if (text === 'Posted') {
+    if (text === "Posted") {
       const createdPostsQuery = userCreatedPostsQuery(userId);
 
       client.fetch(createdPostsQuery).then((data) => {
@@ -58,7 +58,7 @@ const UserProfile = () => {
   const logout = () => {
     localStorage.clear();
 
-    navigate('/login');
+    navigate("/login");
   };
 
   if (!user) return <LoadingSpinner message="Loading profile" />;
@@ -87,7 +87,7 @@ const UserProfile = () => {
             {userId === User && (
               <button
                 type="button"
-                className=" bg-yellow-400 p-2 rounded-lg cursor-pointer outline-none shadow-sm"
+                className=" bg-gray-600 p-2 rounded-lg cursor-pointer outline-none shadow-sm"
                 onClick={() => {
                   logout();
                   googleLogout();
@@ -106,10 +106,10 @@ const UserProfile = () => {
             type="button"
             onClick={(e) => {
               setText(e.target.textContent);
-              setActiveBtn('created');
+              setActiveBtn("created");
             }}
             className={`${
-              activeBtn === 'created' ? activeBtnStyles : notActiveBtnStyles
+              activeBtn === "created" ? activeBtnStyles : notActiveBtnStyles
             }`}
           >
             Posted
@@ -118,10 +118,10 @@ const UserProfile = () => {
             type="button"
             onClick={(e) => {
               setText(e.target.textContent);
-              setActiveBtn('saved');
+              setActiveBtn("saved");
             }}
             className={`${
-              activeBtn === 'saved' ? activeBtnStyles : notActiveBtnStyles
+              activeBtn === "saved" ? activeBtnStyles : notActiveBtnStyles
             }`}
           >
             Saved
